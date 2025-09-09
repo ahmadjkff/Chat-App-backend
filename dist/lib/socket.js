@@ -14,10 +14,7 @@ const server = http_1.default.createServer(app);
 exports.server = server;
 const io = new socket_io_1.Server(server, {
     cors: {
-        origin: [
-            "http://localhost:5173",
-            "https://chat-app-frontend-qc18.onrender.com",
-        ],
+        origin: "https://chat-app-frontend-qc18.onrender.com",
         credentials: true,
     },
 });
