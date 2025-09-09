@@ -24,6 +24,10 @@ app.use(
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Chat App Backend is running!");
+});
+
 server.listen(PORT, () => {
   console.log("running on ", PORT);
   connectDB();
