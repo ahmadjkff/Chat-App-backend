@@ -22,12 +22,10 @@ socket_1.app.use(express_1.default.urlencoded({ limit: "40mb", extended: true })
 socket_1.app.use((0, cookie_parser_1.default)());
 socket_1.app.use((0, cors_1.default)({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
+        if (!origin || allowedOrigins.includes(origin))
             callback(null, true);
-        }
-        else {
+        else
             callback(new Error("Not allowed by CORS"));
-        }
     },
     credentials: true,
 }));

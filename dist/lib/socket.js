@@ -16,8 +16,9 @@ const io = new socket_io_1.Server(server, {
     cors: {
         origin: [
             "http://localhost:5173",
-            "https://chat-app-frontend-qc18.onrender.com/api",
+            "https://chat-app-frontend-qc18.onrender.com",
         ],
+        credentials: true,
     },
 });
 exports.io = io;
