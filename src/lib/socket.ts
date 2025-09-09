@@ -11,6 +11,7 @@ const io = new Server(server, {
       "http://localhost:5173",
       "https://chat-app-frontend-qc18.onrender.com",
     ],
+    credentials: true,
   },
 });
 
