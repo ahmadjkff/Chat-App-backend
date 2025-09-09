@@ -8,6 +8,10 @@ import cors from "cors";
 import { app, server } from "./lib/socket";
 
 const PORT = process.env.PORT || 5001;
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-app-frontend-qc18.onrender.com",
+];
 
 dotenv.config();
 
@@ -16,7 +20,13 @@ app.use(express.urlencoded({ limit: "40mb", extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
